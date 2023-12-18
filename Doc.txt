@@ -1,0 +1,12 @@
+[Trigger-Controller] 
+
+    [Pipes]
+    + transformation: chuyển đổi kiểu dữ liệu, ex: "7" --parse--> 7 number
+    + validation: validate client gửi lên có hợp lệ hay không
+
+    [Client] ----> [Pipes- thành phần trung gian] hợp lệ ---mới đưa vào---> [Controller]
+
+        [Pipes] :
+            + params
+            + Controller
+            + global
