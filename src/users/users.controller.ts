@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Param, ParseIntPipe, } from "@nestjs/common";
+import { Controller, Get, Post, Body, Param, ParseIntPipe, Inject, } from "@nestjs/common";
 import { UserDto } from "src/user.dto";
-// import { UserService } from "./user.service";
-import { ModuleRef } from "@nestjs/core";
+import { UserService } from "./user.service";
+// import { ModuleRef } from "@nestjs/core";
 // import { UserRepository } from "./user.repository";
 
 
@@ -12,7 +12,7 @@ export class UserController {
     // userService: UserService
 
     // create Instance to use UserService
-    constructor(private readonly moduleref: ModuleRef) {
+    constructor(@Inject('USER_SERVICE_QUANNA') private readonly userService: UserService) {
         // const userRepository = new UserRepository
         // this.userService = new UserService(userRepository) // query to db
     }
@@ -36,7 +36,9 @@ export class UserController {
     @Post()
     createUser(@Body() user: UserDto): UserDto {
 
-        return this.moduleref.get('USER_SERVICE_QUANNA').createUser(user);
+        // return this.moduleref.get('USER_SERVICE_QUANNA').createUser(user);
+
+        return this.userService.createUser(user)
     }
 
     @Get(':id')
