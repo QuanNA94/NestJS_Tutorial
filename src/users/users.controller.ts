@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Param, ParseIntPipe, UsePipes, ValidationPipe } from "@nestjs/common";
-import { UserDTO } from "src/user.dto";
+import { Controller, Get, Post, Body, Param, ParseIntPipe, } from "@nestjs/common";
+import { UserDto } from "src/user.dto";
 
 
 @Controller("users")
@@ -21,15 +21,16 @@ export class UserController {
         ]
     }
 
-    @UsePipes(new ValidationPipe)
     @Post()
-    createUser(@Body() user: UserDTO): UserDTO {
+    createUser(@Body() user: UserDto): UserDto {
+        user.createAt = new Date();
+        user.id = 1;
+        user.updateAt = new Date()
+        // const userReal = plainToClass(UserDto, user, { excludeExtraneousValues: true })
+        // return userReal
 
-        console.log(user)
-        return {
-            username: "test",
-            password: "test"
-        }
+        return UserDto.plainToInstance(user)
+
     }
 
     @Get(':id')
