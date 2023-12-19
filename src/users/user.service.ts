@@ -1,13 +1,12 @@
 /* eslint-disable prettier/prettier */
 
 import { UserDto } from "src/user.dto";
-import { UserRepository } from "./user.repository";
+// import { UserRepository } from "./user.repository";
 
 
 export class UserService {
 
-    constructor(userRepository: UserRepository) { }
-
+    // constructor(userRepository: UserRepository) { }
 
     createUser(user: UserDto): UserDto {
         user.createAt = new Date();
