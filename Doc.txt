@@ -24,3 +24,6 @@ Nên sử dụng Repository @Injection
 + Mỗi [Module] có một Injector riêng: 
     + global Injector 
     + Module Injector 
+
+
+    readonly: không muốn sửa bất cứ gì cả 

@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Param, ParseIntPipe, } from "@nestjs/common";
-import { ModuleRef } from "@nestjs/core";
 import { UserDto } from "src/user.dto";
 import { UserService } from "./user.service";
 // import { UserRepository } from "./user.repository";
@@ -12,7 +11,7 @@ export class UserController {
     // userService: UserService
 
     // create Instance to use UserService
-    constructor(private moduleRef: ModuleRef) {
+    constructor(private readonly userService: UserService) {
         // const userRepository = new UserRepository
         // this.userService = new UserService(userRepository) // query to db
     }
@@ -36,14 +35,7 @@ export class UserController {
     @Post()
     createUser(@Body() user: UserDto): UserDto {
 
-        const userService = this.moduleRef.get(UserService)
-
-        // const userReal = plainToClass(UserDto, user, { excludeExtraneousValues: true })
-        // return userReal
-
-        // return this.userService.createUser(user)
-
-        return userService.createUser(user)
+        return this.userService.createUser(user)
     }
 
     @Get(':id')
