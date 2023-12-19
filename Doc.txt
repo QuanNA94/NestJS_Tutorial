@@ -27,3 +27,7 @@ Nên sử dụng Repository @Injection
 
 
     readonly: không muốn sửa bất cứ gì cả 
+
+    Hiện đang provider: ClassName
+    + Giả sử: tải 1 src trên mạng đã có [Module] rồi, viết sẵn hết rồi
+    => [Module] của mình bị conflict => nên sử dụng Key để xử lý

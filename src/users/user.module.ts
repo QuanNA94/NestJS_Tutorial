@@ -7,7 +7,14 @@ import { UserService } from './user.service';
     controllers: [UserController],
 
     // nơi cung cấp 
-    providers: [UserService]
+    // providers: [UserService]
+
+    providers: [
+        {
+            provide: "USER_SERVICE_QUANNA",
+            useClass: UserService
+        }
+    ]
 })
 export class UserModule { }
 
