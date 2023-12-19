@@ -1,9 +1,8 @@
 /* eslint-disable prettier/prettier */
-
-import { Expose, plainToInstance } from "class-transformer";
-
+import { Expose, plainToClass } from "class-transformer";
 
 export abstract class BaseDto {
+
     @Expose()
     id: number;
 
@@ -11,9 +10,9 @@ export abstract class BaseDto {
     createAt: Date;
 
     @Expose()
-    updateAt: Date;
+    updateAt: Date
 
-    static plainToInstance<T>(this: new (...args: any[]) => T, obj: T): T {
-        return plainToInstance(this, obj, { excludeExtraneousValues: true })
+    static plainToClass<T>(this: new (...args: any[]) => T, obj: T): T {
+        return plainToClass(this, obj, { excludeExtraneousValues: true })
     }
 }

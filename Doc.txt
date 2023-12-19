@@ -14,6 +14,14 @@
 [Controller]: receive data input, return data output
 [Service]: nơi xử lý dữ liệu, query đến db như thế nào?, xử lý logic  
 
+    + class Validator
+    + class Transform: 
+        => nếu user gửi lên field dư thừa làm sao ? không validate được 
+        => làm sao pipes trước khi vào db
+
+        plainToClass: chuyển đổi `user` obj plain Javascript thành đối tượng thuộc lớp `UserDto`
+
+        + BaseDto: export abstract class BaseDto -- là lớp trừ tượng thường được chia sẻ cho các lớp khác
 Dependency: 
     [Controller] --> [Service] --> [Repository]
 
