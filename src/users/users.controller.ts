@@ -1,10 +1,20 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Param, ParseIntPipe, } from "@nestjs/common";
 import { UserDto } from "src/user.dto";
+import { UserService } from "./user.service";
+import { UserRepository } from "./user.repository";
 
 
 @Controller("users")
 export class UserController {
+
+    userService: UserService
+    // create Instance to use UserService
+    constructor() {
+        const userRepository = new UserRepository
+        this.userService = new UserService(userRepository) // query to db
+    }
+
     @Get()
     getUser() {
         return [
@@ -23,14 +33,11 @@ export class UserController {
 
     @Post()
     createUser(@Body() user: UserDto): UserDto {
-        user.createAt = new Date();
-        user.id = 1;
-        user.updateAt = new Date()
+
         // const userReal = plainToClass(UserDto, user, { excludeExtraneousValues: true })
         // return userReal
 
-        return UserDto.plainToInstance(user)
-
+        return this.userService.createUser(user)
     }
 
     @Get(':id')

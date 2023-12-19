@@ -10,3 +10,17 @@
             + params
             + Controller
             + global
+
+[Controller]: receive data input, return data output
+[Service]: nơi xử lý dữ liệu, query đến db như thế nào?, xử lý logic  
+
+Dependency: 
+    [Controller] --> [Service] --> [Repository]
+
+    => có nhiều thằng query lộn xộn => bị rối (không nên xài)
+
+Nên sử dụng Repository @Injection
+
++ Mỗi [Module] có một Injector riêng: 
+    + global Injector 
+    + Module Injector 
