@@ -2,6 +2,9 @@
 import { Module } from '@nestjs/common';
 import { UserController } from './users.controller';
 import { UserService } from './user.service';
+import { UsersMockService } from './users-mock.service';
+
+
 
 @Module({
     controllers: [UserController],
@@ -11,9 +14,10 @@ import { UserService } from './user.service';
 
     providers: [
         {
-            provide: "USER_SERVICE_QUANNA",
-            useClass: UserService
-        }
+            provide: UserService,
+            useClass: UsersMockService
+        },
+
     ]
 })
 export class UserModule { }

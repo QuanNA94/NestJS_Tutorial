@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Param, ParseIntPipe, Inject, } from "@nestjs/common";
+import { Controller, Post, Body } from "@nestjs/common";
 import { UserDto } from "src/user.dto";
 import { UserService } from "./user.service";
+import { plainToInstance } from "class-transformer";
 // import { ModuleRef } from "@nestjs/core";
 // import { UserRepository } from "./user.repository";
 
@@ -9,41 +10,16 @@ import { UserService } from "./user.service";
 @Controller("users")
 export class UserController {
 
-    // userService: UserService
-
     // create Instance to use UserService
-    constructor(@Inject('USER_SERVICE_QUANNA') private readonly userService: UserService) {
-        // const userRepository = new UserRepository
-        // this.userService = new UserService(userRepository) // query to db
-    }
-
-    @Get()
-    getUser() {
-        return [
-            {
-                id: 1,
-                name: "quan",
-                age: 30
-            },
-            {
-                id: 2,
-                name: "hoi",
-                age: 28
-            }
-        ]
-    }
+    constructor(private readonly userService: UserService) { }
 
     @Post()
     createUser(@Body() user: UserDto): UserDto {
 
         // return this.moduleref.get('USER_SERVICE_QUANNA').createUser(user);
 
-        return this.userService.createUser(user)
-    }
+        // return this.userService.create(user)
+        return plainToInstance(UserDto, this.userService.create(user))
 
-    @Get(':id')
-    getUserById(@Param('id', ParseIntPipe) id: number) {
-        console.log(id)
-        return "test"
     }
 }
