@@ -4,7 +4,7 @@ import { Inject, Injectable } from "@nestjs/common";
 // import { StoreConfig } from "src/store/store.config";
 // import { plainToInstance } from "class-transformer";
 import { UserDto } from "src/user.dto";
-import { StoreService } from "./store.service";
+import { StoreService } from "../store/store.service";
 // import { UserRepository } from "./user.repository";
 
 
@@ -13,7 +13,8 @@ export class UserService {
     // constructor(@Inject('APP_FB') appFacebook: any,) {
     constructor(
         // @Inject('STORE_CONFIG') storeConfig: StoreConfig,
-        @Inject('STORE_SERVICE') private storeService: StoreService
+        // @Inject('STORE_SERVICE') private storeService: StoreService,
+        private storeService: StoreService
     ) {
 
         // console.log(storeConfig);
