@@ -13,11 +13,11 @@ import { UsersMockService } from './users-mock.service';
     // providers: [UserService]
 
     providers: [
+        // Sử dụng useClass để NestJS tự động tạo instance của UsersMockService
         {
             provide: UserService,
             useClass: UsersMockService
         },
-
     ]
 })
 export class UserModule { }

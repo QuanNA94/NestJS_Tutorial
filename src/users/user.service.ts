@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
+import { StoreConfig } from "src/store/store.config";
 // import { plainToInstance } from "class-transformer";
 import { UserDto } from "src/user.dto";
 // import { UserRepository } from "./user.repository";
@@ -8,7 +9,11 @@ import { UserDto } from "src/user.dto";
 
 @Injectable()
 export class UserService {
+    // constructor(@Inject('APP_FB') appFacebook: any,) {
+    constructor(@Inject('STORE_CONFIG') storeConfig: StoreConfig) {
 
+        console.log(storeConfig);
+    }
     // constructor(userRepository: UserRepository) { }
 
     // createUser(user: UserDto): UserDto {
