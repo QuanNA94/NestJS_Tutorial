@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
+import { StoreConfig } from "./store.module";
+import * as fs from 'fs'
 
 // luu data user
 // export class StoreService { 
@@ -12,7 +14,14 @@ import { Injectable } from "@nestjs/common";
 
 @Injectable()
 export class StoreService {
-    save(data : any) : void {
+
+    constructor(@Inject('STORE_CONFIG') private readonly storeConfig: StoreConfig) {
+        if(!fs.existsSync(this.storeConfig.dirname)) {
+            fs.mkdirSync(this.storeConfig.dirname)
+        }
+    }
+
+    save(data: any): void {
         console.log("data", data)
     }
 }
