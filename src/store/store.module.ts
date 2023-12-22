@@ -15,7 +15,7 @@ export interface StoreConfig {
         provide: "STORE_CONFIG",
         useValue: {
             dirname: 'store',
-            filename: 'user.json'
+            filename: 'data.json' // change name
         } as StoreConfig
     }],
 
