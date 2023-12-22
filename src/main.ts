@@ -8,7 +8,7 @@ import { AppModule } from "./app.module"
 async function bootstrap(): Promise<void> {
     const app = await NestFactory.create(AppModule)
 
-    const PORT = 3000
+    const PORT = 8080
     app.listen(PORT, () => {
         console.log(`start with port=${PORT}`)
     })

@@ -13,6 +13,9 @@ export class RequestService {
     }
 
     getUserId() {
-        return this.userId;
+        // return "this.userId";
+        return "1";
+
     }
 }
+

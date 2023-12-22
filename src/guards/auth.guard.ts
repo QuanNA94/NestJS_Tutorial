@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prettier/prettier */
+
+// CanActivate: Interface từ @nestjs/common được triển khai bởi các guards để xác định liệu một request có được phép tiếp tục hay không.
 import { CanActivate, ExecutionContext, Injectable, Logger } from '@nestjs/common';
-import { Observable } from 'rxjs'; // Thêm import Observable
+import { Observable } from 'rxjs'; // RxJS là một thư viện hỗ trợ lập trình bất đồng bộ trong JavaScript/TypeScript.
 import { RequestService } from 'src/utils/request.service';
 
 @Injectable()
