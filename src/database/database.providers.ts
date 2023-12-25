@@ -12,7 +12,7 @@ export const databaseProviders = [
         port: 3309,
         username: 'root',
         password: 'root',
-        database: 'mysql',
+        database: 'my-sql-1',
         entities: [
             __dirname + '/../**/*.entity{.ts,.js}',
         ],

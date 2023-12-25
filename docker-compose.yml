@@ -1,13 +1,14 @@
 version: '3'
 services:
   my-sql:
+    container_name: new-sql
     image: mysql:8.0  # Chú ý: Đã sửa tên của hình ảnh
     ports:
       - "3309:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: mysql
+      MYSQL_DATABASE: my-sql-1
       MYSQL_USER: Gideon
       MYSQL_PASSWORD: root 
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - ./data/mysql:/var/lib/my-sql-1
