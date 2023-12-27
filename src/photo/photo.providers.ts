@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { DataSource } from 'typeorm';
-import { Photo } from './photo.entity';
+import { Photo } from '../entities/photo.entity';
 
 export const photoProviders = [
   {

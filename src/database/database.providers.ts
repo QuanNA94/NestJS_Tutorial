@@ -7,12 +7,12 @@ export const databaseProviders = [
     provide: 'DATA_SOURCE',
     useFactory: async () => {
       const dataSource = new DataSource({
-        type: 'mysql',
+        type: 'postgres',
         host: 'localhost',
-        port: 3309,
-        username: 'root',
-        password: 'root',
-        database: 'my-sql-1',
+        port: 5432,
+        username: 'quanna',
+        password: '123',
+        database: 'postgres',
         entities: [
             __dirname + '/../**/*.entity{.ts,.js}',
         ],

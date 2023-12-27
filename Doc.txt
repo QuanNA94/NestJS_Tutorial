@@ -47,3 +47,6 @@ Nên sử dụng Repository @Injection
 
     Nếu thay key 'USER_SERVICE_QUANNA' thành 'APP_USER' in [users.controller.ts]
     => sẽ báo lỗi, => do mỗi [Module] có 1 Injector riêng, dù 'APP_USER' gọi UserService đi chăng nữa
+
+
+

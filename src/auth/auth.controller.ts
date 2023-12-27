@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Post, Body, } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { createUserDto, userTypeDto } from 'src/user/users.dto/users.dto';
 // import { CreateAuthDto } from './dto/create-auth.dto';
 // import { UpdateAuthDto } from './dto/update-auth.dto';
-import { userTypeDto } from 'src/user/entities/user.entities';
+// import { userTypeDto } from 'src/auth/entities/user.entities';
 
 @Controller('auth')
 export class AuthController {
@@ -11,7 +12,7 @@ export class AuthController {
 
 
   @Post("/sign-up")
-  signUp(@Body() body: userTypeDto) {
+  signUp(@Body() body: createUserDto) {
     return this.authService.signUp(body)
   }
 
