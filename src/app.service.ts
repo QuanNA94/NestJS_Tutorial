@@ -1,0 +1,16 @@
+import { Injectable } from '@nestjs/common';
+
+@Injectable()
+export class AppService {
+  getHello(): string {
+    return 'Hello World!';
+  }
+
+  getName(): string {
+    return 'Quan';
+  }
+
+  getAge(): number {
+    return 13;
+  }
+}
